@@ -1,4 +1,5 @@
 const TOKEN_KEY = "catalogo_token";
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 export function getToken() {
   return localStorage.getItem(TOKEN_KEY);
@@ -34,18 +35,18 @@ export async function apiFetch(path, options = {}) {
 }
 
 export async function loginRequest(email, password) {
-  return apiFetch("/api/auth/login", {
+  return apiFetch(`${API_BASE_URL}/api/auth/login`, {
     method: "POST",
     body: JSON.stringify({ email, password }),
   });
 }
 
 export async function fetchProducts() {
-  return apiFetch("/api/products");
+  return apiFetch(`${API_BASE_URL}/api/products`);
 }
 
 export async function fetchProduct(id) {
-  return apiFetch(`/api/products/${encodeURIComponent(id)}`);
+  return apiFetch(`${API_BASE_URL}/api/products/${encodeURIComponent(id)}`);
 }
 
 export async function createProduct(body) {
