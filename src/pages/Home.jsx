@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AuthBar from "../components/AuthBar.jsx";
 import ProductsSection from "../components/ProductsSection.jsx";
+import { buildUrl } from "../api";
 
 export default function Home() {
   const [productsKey, setProductsKey] = useState(0);
@@ -44,18 +45,18 @@ export default function Home() {
   return (
     <>
       <section className="hero">
-        <img src="/images/imgPrincipal.png" alt="" />
+        <img src={buildUrl("/images/imgPrincipal.png")} alt="" />
       </section>
 
       <header className="header">
-        <img className="bg" src="/images/bg.png" alt="" />
+        <img className="bg" src={buildUrl("/images/bg.png")} alt="" />
 
         <div className="menu container">
           <a href="#" className="logo" aria-label="Inicio" />
 
           <input type="checkbox" id="menu" />
           <label htmlFor="menu">
-            <img src="/images/menu.png" className="menu-icono" alt="" />
+            <img src={buildUrl("/images/menu.png")} className="menu-icono" alt="" />
           </label>
 
           <nav className="navbar">
@@ -92,7 +93,7 @@ export default function Home() {
           </div>
 
           <div className="header-img">
-            <img src="/images/pl-1.png" alt="" />
+            <img src={buildUrl("/images/pl-1.png")} alt="" />
           </div>
         </div>
       </header>
@@ -102,30 +103,30 @@ export default function Home() {
 
         <div className="breakfast-content">
           <div className="breakfast-1">
-            <img src="/images/b1.png" alt="" />
+            <img src={buildUrl("/images/b1.png")} alt="" />
             <h3>Pintura 1</h3>
           </div>
           <div className="breakfast-1">
-            <img src="/images/b2.png" alt="" />
+            <img src={buildUrl("/images/b2.png")} alt="" />
             <h3>Pintura 1</h3>
           </div>
           <div className="breakfast-1">
-            <img src="/images/b3.png" alt="" />
+            <img src={buildUrl("/images/b3.png")} alt="" />
             <h3>Pintura 1</h3>
           </div>
           <div className="breakfast-1">
-            <img src="/images/b4.jpeg" alt="" />
+            <img src={buildUrl("/images/b4.jpeg")} alt="" />
             <h3>Pintura 1</h3>
           </div>
         </div>
       </section>
 
       <section className="info">
-        <img className="bg-2" src="/images/bg-2.png" alt="" />
+        <img className="bg-2" src={buildUrl("/images/bg-2.png")} alt="" />
 
         <div className="info-content">
           <div className="info-img">
-            <img src="/images/breakfast.jpeg" alt="" />
+            <img src={buildUrl("/images/breakfast.jpeg")} alt="" />
           </div>
 
           <div className="info-txt">

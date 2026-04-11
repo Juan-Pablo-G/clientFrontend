@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { fetchProducts } from "../api";
+import { buildUrl, fetchProducts } from "../api";
 
 const STEP = 4;
 
@@ -86,7 +86,7 @@ export default function ProductsSection({ refreshKey }) {
       <div className="box-container" id="lista-1" ref={containerRef}>
         {products.map((p, index) => (
           <div key={p.id} className={`box ${index < visible ? "box-visible" : ""}`}>
-            <img src={`/images/${p.image}`} alt={p.title} />
+            <img src={buildUrl(`/images/${p.image}`)} alt={p.title} />
             <div className="product-txt">
               <h3>{p.title}</h3>
               {p.subtitle ? <p>{p.subtitle}</p> : null}

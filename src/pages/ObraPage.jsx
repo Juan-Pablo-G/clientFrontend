@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { fetchProduct } from "../api";
+import { buildUrl, fetchProduct } from "../api";
 
 export default function ObraPage() {
   const { id } = useParams();
@@ -51,8 +51,7 @@ export default function ObraPage() {
     <header className="header obra-header">
       <div className="header-content container">
         <div className="header-img">
-          <img src={`/images/${product.image}`} alt={product.title} />
-        </div>
+          <img src={buildUrl(`/images/${product.image}`)} alt={product.title} />
 
         <div className="header-txt">
           <h1>{product.title}</h1>
