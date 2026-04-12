@@ -52,6 +52,7 @@ export default function ObraPage() {
       <div className="header-content container">
         <div className="header-img">
           <img src={buildUrl(`/images/${product.image}`)} alt={product.title} />
+        </div>
 
         <div className="header-txt">
           <h1>{product.title}</h1>
