@@ -1,8 +1,13 @@
 [build]
-  command = "npm run build --prefix client"
+  command = "cd client && npm install && npm run build"
   publish = "client/dist"
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+# Environment variables para el API
+[build.environment]
+  VITE_API_URL = "https://tu-servidor-render.com"
+
