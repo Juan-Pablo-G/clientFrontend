@@ -1,10 +1,10 @@
 [build]
   command = "cd client && npm install && npm run build"
-  publish = "client/dist"
+  publish = "."
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/admin/*"
+  to = "/client/dist/index.html"
   status = 200
 
 # Environment variables para el API
