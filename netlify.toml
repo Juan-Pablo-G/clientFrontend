@@ -1,0 +1,23 @@
+# Configuración de Netlify
+
+[build]
+  # No se necesita un comando de build ya que es un sitio estático
+  command = "echo 'Sitio estático listo para desplegar'"
+  publish = "."
+
+# Redirigir rutas no encontradas al index.html (para SPA)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers para mejor rendimiento
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
