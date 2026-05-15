@@ -1,15 +1,8 @@
 # Configuración de Netlify
 
 [build]
-  # No se necesita un comando de build ya que es un sitio estático
-  command = "echo 'Sitio estático listo para desplegar'"
-  publish = "."
-
-# Redirigir rutas no encontradas al index.html (para SPA)
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  publish = "/"
+  command = "echo 'Sitio estático listo'"
 
 # Headers para mejor rendimiento
 [[headers]]
