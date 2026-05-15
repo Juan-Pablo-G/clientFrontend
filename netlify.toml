@@ -9,5 +9,5 @@
 
 # Environment variables para el API
 [build.environment]
-  VITE_API_URL = "https://tu-servidor-render.com"
+  VITE_API_URL = "https://serverbackend-8zzp.onrender.com"
 
