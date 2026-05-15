@@ -101,6 +101,24 @@ a {
     transform: scale(0.95);
 }
 
+.btn-admin {
+    background: linear-gradient(135deg, #da4a91, #b83d78);
+    color: #ffffff !important;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 15px rgba(218, 74, 145, 0.3);
+}
+
+.btn-admin:hover {
+    background: linear-gradient(135deg, #b83d78, #da4a91);
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(218, 74, 145, 0.4);
+}
+
+.btn-admin:active {
+    transform: scale(0.95) translateY(0);
+    box-shadow: 0 2px 10px rgba(218, 74, 145, 0.3);
+}
+
 .hero-wave {
     position: absolute;
     left: 0;
