@@ -1,35 +1,16 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { buildUrl, fetchProducts } from "../api";
+import ExpandModal from "./ExpandModal";
 
 const STEP = 4;
-
-function DetailLink({ product }) {
-  let detail = (product.detailPath || `/obra/${product.id}`).trim();
-
-  if (!detail.startsWith("/") && !/^https?:\/\//i.test(detail)) {
-    detail = "/" + detail;
-  }
-
-  const external = /^https?:\/\//i.test(detail);
-  if (external) {
-    return (
-      <a href={detail} className="btn-3" target="_blank" rel="noreferrer">
-        Ver más
-      </a>
-    );
-  }
-  return (
-    <Link to={detail} className="btn-3">
-      Ver más
-    </Link>
-  );
-}
+const CATEGORIES = ["Ilustraciones", "Digital", "Acuarela", "Papel"];
 
 export default function ProductsSection({ refreshKey }) {
   const [products, setProducts] = useState([]);
-  const [visible, setVisible] = useState(STEP);
   const [error, setError] = useState("");
+  const [expandedModal, setExpandedModal] = useState(null);
+  const [visibleByCategory, setVisibleByCategory] = useState({});
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -38,8 +19,15 @@ export default function ProductsSection({ refreshKey }) {
       try {
         const list = await fetchProducts();
         if (!cancelled) {
-          setProducts(Array.isArray(list) ? list : []);
-          setVisible(STEP);
+          const sortedProducts = Array.isArray(list) ? list : [];
+          setProducts(sortedProducts);
+          
+          // Inicializar contador de productos visibles por categoría
+          const initialVisible = {};
+          CATEGORIES.forEach((cat) => {
+            initialVisible[cat] = STEP;
+          });
+          setVisibleByCategory(initialVisible);
         }
       } catch (e) {
         if (!cancelled) setError(e.message || "No se pudieron cargar los productos");
@@ -73,33 +61,92 @@ export default function ProductsSection({ refreshKey }) {
     return () => observer.disconnect();
   }, [products]);
 
-  const showLoadMore = visible < products.length;
+  // Agrupar productos por categoría
+  const productsByCategory = {};
+  CATEGORIES.forEach((cat) => {
+    productsByCategory[cat] = products.filter((p) => p.category === cat);
+  });
 
-  function loadMore() {
-    setVisible((v) => Math.min(v + STEP, products.length));
+  function handleLoadMore(category) {
+    setVisibleByCategory((prev) => ({
+      ...prev,
+      [category]: Math.min(
+        prev[category] + STEP,
+        productsByCategory[category].length
+      ),
+    }));
+  }
+
+  function handleExpandClick(product) {
+    setExpandedModal(product);
   }
 
   return (
     <main id="productos" className="products container">
-      <h2>Productos</h2>
+      <h2>Proyectos recientes</h2>
       {error ? <p className="error-msg">{error}</p> : null}
-      <div className="box-container" id="lista-1" ref={containerRef}>
-        {products.map((p, index) => (
-          <div key={p.id} className={`box ${index < visible ? "box-visible" : ""}`}>
-            <img src={buildUrl(`/images/${p.image}`)} alt={p.title} />
-            <div className="product-txt">
-              <h3>{p.title}</h3>
-              {p.subtitle ? <p>{p.subtitle}</p> : null}
-              <DetailLink product={p} />
-            </div>
-          </div>
-        ))}
+
+      <div ref={containerRef}>
+        {CATEGORIES.map((category) => {
+          const categoryProducts = productsByCategory[category];
+          const visible = visibleByCategory[category] || STEP;
+          const showLoadMore = visible < categoryProducts.length;
+
+          return (
+            <section key={category} className="category-section">
+              <h3 className="category-title">{category}</h3>
+              
+              {categoryProducts.length === 0 ? (
+                <p className="no-products">No hay productos en esta categoría</p>
+              ) : (
+                <>
+                  <div className="box-container">
+                    {categoryProducts.map((p, index) => (
+                      <div
+                        key={p.id}
+                        className={`box ${index < visible ? "box-visible" : ""}`}
+                      >
+                        <img
+                          src={buildUrl(`/images/${p.image}`)}
+                          alt={p.title}
+                        />
+                        <div className="product-txt">
+                          <h3>{p.title}</h3>
+                          {p.subtitle ? <p>{p.subtitle}</p> : null}
+                          <button
+                            className="btn-3"
+                            onClick={() => handleExpandClick(p)}
+                          >
+                            Ver más
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {showLoadMore ? (
+                    <div
+                      className="btn-2"
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => handleLoadMore(category)}
+                      onKeyDown={(e) => e.key === "Enter" && handleLoadMore(category)}
+                    >
+                      Cargar mas
+                    </div>
+                  ) : null}
+                </>
+              )}
+            </section>
+          );
+        })}
       </div>
-      {showLoadMore ? (
-        <div className="btn-2" role="button" tabIndex={0} onClick={loadMore} onKeyDown={(e) => e.key === "Enter" && loadMore()}>
-          Cargar mas
-        </div>
-      ) : null}
+
+      <ExpandModal
+        isOpen={!!expandedModal}
+        onClose={() => setExpandedModal(null)}
+        product={expandedModal}
+      />
     </main>
   );
 }

@@ -588,10 +588,37 @@ p {
     background-color: #ff9000;
     color: #FFFFFF;
     border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
 }
 
 .btn-3:hover {
     background-color: #ef8700;
+}
+
+/* Estilos para secciones de categorías */
+.category-section {
+    margin-bottom: 60px;
+}
+
+.category-title {
+    font-size: 32px;
+    color: #ff9000;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: left;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ff9000;
+}
+
+.no-products {
+    text-align: center;
+    color: #999;
+    padding: 30px;
+    font-size: 16px;
 }
 
 .btn {

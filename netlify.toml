@@ -1,11 +1,6 @@
 [build]
-  command = "cd client && npm install && npm run build && cd .. && mkdir -p admin && cp -r client/dist/* admin/"
-  publish = "."
-
-[[redirects]]
-  from = "/admin/*"
-  to = "/admin/index.html"
-  status = 200
+  command = "cd client && npm install && npm run build"
+  publish = "client/dist"
 
 # Environment variables para el API
 [build.environment]

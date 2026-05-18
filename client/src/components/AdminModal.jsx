@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { createProduct, deleteProduct, fetchProducts, updateProduct, uploadProductImage } from "../api";
 
-const emptyForm = { title: "", subtitle: "", image: "", detailPath: "", description: "" };
+const emptyForm = { title: "", subtitle: "", image: "", detailPath: "", description: "", category: "Ilustraciones" };
+const CATEGORIES = ["Ilustraciones", "Digital", "Acuarela", "Papel"];
 
 export default function AdminModal({ onClose, onSaved }) {
   const [products, setProducts] = useState([]);
@@ -37,6 +38,7 @@ export default function AdminModal({ onClose, onSaved }) {
       image: p.image,
       detailPath: p.detailPath || "",
       description: p.description || "",
+      category: p.category || "Ilustraciones",
     });
     setImageFile(null);
     setImagePreview("");
@@ -83,6 +85,7 @@ export default function AdminModal({ onClose, onSaved }) {
         subtitle: form.subtitle.trim() || "",
         detailPath: form.detailPath.trim() || undefined,
         description: form.description.trim() || "",
+        category: form.category || "Ilustraciones",
       };
 
       if (imageName) body.image = imageName;
@@ -173,7 +176,22 @@ export default function AdminModal({ onClose, onSaved }) {
               onChange={(e) => setForm((f) => ({ ...f, detailPath: e.target.value }))}
               placeholder="Vacío = página de detalle por defecto /obra/&lt;id&gt;"
             />
-          </div>          <div className="form-field">
+          </div>
+          <div className="form-field">
+            <label>Categoría</label>
+            <select
+              value={form.category}
+              onChange={(e) => setForm((f) => ({ ...f, category: e.target.value }))}
+              style={{ width: "100%", padding: "10px 12px", borderRadius: "10px", border: "1px solid #ddd", fontFamily: "inherit", fontSize: "14px" }}
+            >
+              {CATEGORIES.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="form-field">
             <label>Descripción de producto</label>
             <textarea
               rows={4}
@@ -212,6 +230,7 @@ export default function AdminModal({ onClose, onSaved }) {
               <tr>
                 <th>Título</th>
                 <th>Subtítulo</th>
+                <th>Categoría</th>
                 <th>Imagen</th>
                 <th>Enlace</th>
                 <th />
@@ -222,6 +241,7 @@ export default function AdminModal({ onClose, onSaved }) {
                 <tr key={p.id}>
                   <td>{p.title}</td>
                   <td>{p.subtitle || "-"}</td>
+                  <td>{p.category || "-"}</td>
                   <td>{p.image}</td>
                   <td style={{ maxWidth: 180, overflow: "hidden", textOverflow: "ellipsis" }}>{p.detailPath}</td>
                   <td>
