@@ -223,6 +223,97 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+        <section id="about" style={{
+          padding: "100px 0",
+          background: "#f9fafc"
+        }}>
+          <div style={{
+            maxWidth: "1000px",
+            margin: "0 auto",
+            padding: "40px 24px",
+            background: "#ffffff",
+            borderRadius: "32px",
+            boxShadow: "0 25px 60px rgba(39, 54, 77, 0.08)"
+          }}>
+            <span style={{
+              display: "inline-block",
+              color: "#da4a91",
+              fontWeight: 700,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              fontSize: "0.85rem",
+              marginBottom: "16px"
+            }}>
+              Sobre mí
+            </span>
+            <h2 style={{
+              fontSize: "clamp(2rem, 3vw, 3rem)",
+              lineHeight: "1.05",
+              marginBottom: "18px",
+              color: "#1f2937"
+            }}>
+              Mi arte está hecho para comunicar emoción
+            </h2>
+            <p style={{
+              color: "#5d6f85",
+              lineHeight: "1.8",
+              maxWidth: "720px"
+            }}>
+              Soy artista digital e ilustradora, con experiencia creando piezas vibrantes para redes sociales, publicaciones y proyectos editoriales. Trabajo con colores fuertes y una estética moderna que conecta con marcas creativas.
+            </p>
+          </div>
+        </section>
+        <section id="contact" style={{
+          padding: "100px 0"
+        }}>
+          <div style={{
+            maxWidth: "1000px",
+            margin: "0 auto",
+            padding: "40px 24px",
+            background: "#ffffff",
+            borderRadius: "32px",
+            boxShadow: "0 25px 60px rgba(39, 54, 77, 0.08)"
+          }}>
+            <span style={{
+              display: "inline-block",
+              color: "#da4a91",
+              fontWeight: 700,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              fontSize: "0.85rem",
+              marginBottom: "16px"
+            }}>
+              Contacto
+            </span>
+            <h2 style={{
+              fontSize: "clamp(2rem, 3vw, 3rem)",
+              lineHeight: "1.05",
+              marginBottom: "18px",
+              color: "#1f2937"
+            }}>
+              Hablemos de tu próximo proyecto
+            </h2>
+            <p style={{
+              color: "#5d6f85",
+              lineHeight: "1.8",
+              maxWidth: "720px",
+              marginBottom: "24px"
+            }}>
+              Si quieres encargar una ilustración o una campaña visual, escríbeme y trabajamos juntos para crear algo único.
+            </p>
+            <a href="mailto:contacto@murisart.com" style={{
+              display: "inline-block",
+              background: "#da4a91",
+              color: "#ffffff",
+              padding: "14px 28px",
+              borderRadius: "12px",
+              textDecoration: "none",
+              fontWeight: 700
+            }}>
+              Enviar mensaje
+            </a>
+          </div>
+        </section>
       </main>
     </div>
   );

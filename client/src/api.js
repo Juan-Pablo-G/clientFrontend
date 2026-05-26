@@ -1,5 +1,6 @@
 const TOKEN_KEY = "catalogo_token";
-export const API_BASE_URL = import.meta.env.VITE_API_URL || "";
+const DEFAULT_API_BASE_URL = "https://serverbackend-8zzp.onrender.com";
+export const API_BASE_URL = import.meta.env.VITE_API_URL || DEFAULT_API_BASE_URL;
 
 export function getToken() {
   return localStorage.getItem(TOKEN_KEY);
