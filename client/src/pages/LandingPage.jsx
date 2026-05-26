@@ -54,7 +54,7 @@ export default function LandingPage() {
       )}
 
       <footer className="footer">
-        <p>&copy; 2026 Muris Art. Ilustraciones y diseño.</p>
+        <p>&copy; 2026 Solecito. Ilustraciones y diseño.</p>
       </footer>
     </div>
   );

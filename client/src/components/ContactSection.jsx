@@ -14,7 +14,7 @@ export default function ContactSection() {
 
           <div className="contact-buttons">
             <a 
-              href="https://instagram.com/murisart" 
+              href="https://www.instagram.com/solecito_.30/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="contact-button instagram-button"
