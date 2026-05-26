@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 
-export default function LoginModal({ onClose }) {
+export default function LoginModal({ onClose, onSuccess }) {
   const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
+  
   async function handleSubmit(e) {
     e.preventDefault();
     setError("");
@@ -15,6 +15,7 @@ export default function LoginModal({ onClose }) {
     try {
       await login(email, password);
       onClose();
+      onSuccess?.();
     } catch (err) {
       setError(err.message || "No se pudo iniciar sesión");
     } finally {
