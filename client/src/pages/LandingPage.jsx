@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function LandingPage() {
   return (
@@ -82,7 +83,7 @@ export default function LandingPage() {
           }}>
             Contacto
           </a>
-          <a href="/admin" style={{
+          <Link to="/admin" style={{
             background: "linear-gradient(135deg, #da4a91, #b83d78)",
             color: "#ffffff",
             fontSize: "1.2rem",
@@ -96,7 +97,7 @@ export default function LandingPage() {
             boxShadow: "0 4px 15px rgba(218, 74, 145, 0.3)"
           }}>
             Administrar
-          </a>
+          </Link>
         </nav>
 
         <div style={{
@@ -173,7 +174,7 @@ export default function LandingPage() {
                 <p style={{ color: "#5d6f85", lineHeight: "1.75" }}>
                   Una pieza colorida con estilo moderno, ideal para publicaciones creativas.
                 </p>
-                <a href="/obra/obra1" style={{
+                <Link to="/obra/obra1" style={{
                   background: "#da4a91",
                   color: "#ffffff",
                   padding: "12px 24px",
@@ -184,7 +185,7 @@ export default function LandingPage() {
                   transition: "all 0.3s ease"
                 }}>
                   Ver más
-                </a>
+                </Link>
               </div>
 
               <div style={{
@@ -206,7 +207,7 @@ export default function LandingPage() {
                 <p style={{ color: "#5d6f85", lineHeight: "1.75" }}>
                   Ilustración vibrante pensada para destacar en redes sociales y contenido visual.
                 </p>
-                <a href="/obra/obra2" style={{
+                <Link to="/obra/obra2" style={{
                   background: "#da4a91",
                   color: "#ffffff",
                   padding: "12px 24px",
@@ -217,7 +218,7 @@ export default function LandingPage() {
                   transition: "all 0.3s ease"
                 }}>
                   Ver más
-                </a>
+                </Link>
               </div>
             </div>
           </div>
