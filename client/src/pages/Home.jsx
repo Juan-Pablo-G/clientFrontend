@@ -45,7 +45,7 @@ export default function Home() {
   return (
     <>
       <section className="hero">
-        <img src={buildUrl("/images/imgPrincipal.png")} alt="" />
+        <img src={buildUrl("/images/1774818637969-imgPrincipal.png")} alt="" />
       </section>
 
       <header className="header">

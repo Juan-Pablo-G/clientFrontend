@@ -4,12 +4,7 @@ import "./ExpandModal.css";
 export default function ExpandModal({ isOpen, onClose, product }) {
   if (!isOpen || !product) return null;
 
-  // Crear 3 elementos adicionales con la misma imagen del producto principal
-  const additionalItems = [
-    { id: `${product.id}-ext-1`, image: product.image, title: `${product.title} - Variante 1` },
-    { id: `${product.id}-ext-2`, image: product.image, title: `${product.title} - Variante 2` },
-    { id: `${product.id}-ext-3`, image: product.image, title: `${product.title} - Variante 3` },
-  ];
+  const description = product.description || product.subtitle;
 
   return (
     <div className="expand-modal-overlay" onClick={onClose}>
@@ -21,14 +16,13 @@ export default function ExpandModal({ isOpen, onClose, product }) {
         <h2>{product.title}</h2>
 
         <div className="expand-gallery">
-          {additionalItems.map((item) => (
-            <div key={item.id} className="expand-item">
-              <img src={buildUrl(`/images/${item.image}`)} alt={item.title} />
-              <div className="product-txt">
-                <h3>{item.title}</h3>
-              </div>
+          <div className="expand-item">
+            <img src={buildUrl(`/images/${product.image}`)} alt={product.title} />
+            <div className="product-txt">
+              <h3>{product.title}</h3>
+              {description ? <p>{description}</p> : null}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </div>

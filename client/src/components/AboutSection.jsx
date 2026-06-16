@@ -25,7 +25,7 @@ export default function AboutSection() {
 
         <div className="about-image-container">
           <img
-            src="/images/imgPrincipal.png"
+            src="/images/1774818637969-imgPrincipal.png"
             alt="Muestra de trabajo"
             className="about-image"
           />

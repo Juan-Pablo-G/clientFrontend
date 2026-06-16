@@ -8,7 +8,7 @@ export default function HeroSection({ onNavClick, onAdminClick }) {
 
         <div className="hero-image-container">
           <img
-            src="/images/imgPrincipal.png"
+            src="/images/1774818637969-imgPrincipal.png"
             alt="Ilustración principal"
             className="hero-image"
           />

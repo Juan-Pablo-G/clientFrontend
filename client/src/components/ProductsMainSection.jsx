@@ -53,9 +53,37 @@ export default function ProductsMainSection({ refreshKey }) {
     setExpandedModal(product);
   }
 
-  // Mostrar solo el primer producto.
-  // Los siguientes dos productos se conservan en el comentario para uso futuro.
-  const mainProducts = products.slice(0, 1);
+  const fallbackProduct = {
+    id: "nina-fresa-01",
+    title: "Niña Fresa",
+    subtitle: "Ilustración cuentos infantiles",
+    image: "1774818637969-imgPrincipal.png",
+    description: "Proyecto inspirado en dos palabras en técnica acuarela",
+    detailPath: "/obra/niña-fresa",
+  };
+
+  const productFromApi = products[0] || {};
+  const useFallback =
+    !productFromApi.title ||
+    productFromApi.title === "Ejemplo Producto" ||
+    productFromApi.image?.startsWith("pla") ||
+    productFromApi.image?.startsWith("imgPrincipal");
+
+  const mainProducts = [
+    {
+      ...fallbackProduct,
+      ...productFromApi,
+      title: useFallback ? fallbackProduct.title : productFromApi.title,
+      subtitle: useFallback
+        ? fallbackProduct.subtitle
+        : productFromApi.subtitle || fallbackProduct.subtitle,
+      image: useFallback ? fallbackProduct.image : productFromApi.image || fallbackProduct.image,
+      description: useFallback
+        ? fallbackProduct.description
+        : productFromApi.description || fallbackProduct.description,
+      detailPath: productFromApi.detailPath || fallbackProduct.detailPath,
+    },
+  ];
   // const mainProducts = products.slice(0, 3);
 
   return (
@@ -80,8 +108,10 @@ export default function ProductsMainSection({ refreshKey }) {
               </div>
               <div className="product-info">
                 <h3 className="product-title">{product.title}</h3>
-                {product.subtitle ? (
-                  <p className="product-subtitle">{product.subtitle}</p>
+                {(product.subtitle || product.description) ? (
+                  <p className="product-subtitle">
+                    {product.subtitle || product.description}
+                  </p>
                 ) : null}
                 <button
                   className="product-button"

@@ -1128,9 +1128,11 @@ p {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 1fr;
     gap: 32px;
-    margin-bottom: 40px;
+    margin: 0 auto 40px;
+    max-width: 760px;
+    justify-items: center;
 }
 
 .product-card {
@@ -1141,6 +1143,9 @@ p {
     display: grid;
     gap: 18px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
 }
 
 .product-card:hover {
@@ -1196,6 +1201,8 @@ p {
     transition: all 0.3s ease;
     font-family: "Poppins", sans-serif;
     font-size: 1rem;
+    width: 100%;
+    text-align: center;
 }
 
 .product-button:hover {
