@@ -53,8 +53,10 @@ export default function ProductsMainSection({ refreshKey }) {
     setExpandedModal(product);
   }
 
-  // Mostrar solo los primeros 3 productos
-  const mainProducts = products.slice(0, 3);
+  // Mostrar solo el primer producto.
+  // Los siguientes dos productos se conservan en el comentario para uso futuro.
+  const mainProducts = products.slice(0, 1);
+  // const mainProducts = products.slice(0, 3);
 
   return (
     <section className="products-section">
@@ -85,7 +87,7 @@ export default function ProductsMainSection({ refreshKey }) {
                   className="product-button"
                   onClick={() => handleExpandClick(product)}
                 >
-                  Ver más
+                  Proceso Creativo
                 </button>
               </div>
             </div>

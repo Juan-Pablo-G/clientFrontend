@@ -1089,9 +1089,8 @@ p {
 }
 
 .about-highlight {
-    background: linear-gradient(135deg, #da4a91, #b83d78);
-    color: #ffffff;
-    padding: 24px;
+        background: linear-gradient(135deg, #f8eef8, #e5f4ff);
+        color: #1f2d3d;
     border-radius: 16px;
     margin-top: 16px;
 }

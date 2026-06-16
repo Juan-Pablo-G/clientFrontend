@@ -14,8 +14,20 @@ export function setToken(token) {
 export function buildUrl(path) {
   if (!path) return path;
   if (/^https?:\/\//i.test(path)) return path;
-  if (!API_BASE_URL) return path;
+
+  const isImage = path.startsWith("/images");
   const base = API_BASE_URL.replace(/\/+$|^\s+|\s+$/g, "");
+
+  if (isImage) {
+    // En desarrollo sin VITE_API_URL, usamos la ruta relativa para que Vite
+    // sirva las imágenes locales desde client/public/images.
+    if (!import.meta.env.VITE_API_URL) {
+      return path;
+    }
+    return `${base}${path}`;
+  }
+
+  if (!API_BASE_URL) return path;
   return `${base}${path.startsWith("/") ? "" : "/"}${path}`;
 }
 
