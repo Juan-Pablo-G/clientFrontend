@@ -5,7 +5,8 @@ export default function ExpandModal({ isOpen, onClose, product }) {
   if (!isOpen || !product) return null;
 
   const description = product.description || product.subtitle;
-  const modalTitle = product.modalTitle || "PROYECTO 1";
+  const modalTitle = "PROYECTO 1";
+  const modalImage = buildUrl("/images/PROYECTO1_FINAL.png");
 
   return (
     <div className="expand-modal-overlay" onClick={onClose}>
@@ -18,7 +19,7 @@ export default function ExpandModal({ isOpen, onClose, product }) {
 
         <div className="expand-gallery">
           <div className="expand-item">
-            <img src={buildUrl(`/images/${product.image}`)} alt={product.title} />
+            <img src={modalImage} alt="Proyecto 1" />
             <div className="product-txt">
               <h3>{product.title}</h3>
               {description ? <p>{description}</p> : null}
