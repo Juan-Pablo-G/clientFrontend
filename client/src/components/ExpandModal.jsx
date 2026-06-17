@@ -5,6 +5,7 @@ export default function ExpandModal({ isOpen, onClose, product }) {
   if (!isOpen || !product) return null;
 
   const description = product.description || product.subtitle;
+  const modalTitle = product.modalTitle || "PROYECTO 1";
 
   return (
     <div className="expand-modal-overlay" onClick={onClose}>
@@ -13,7 +14,7 @@ export default function ExpandModal({ isOpen, onClose, product }) {
           ✕
         </button>
 
-        <h2>{product.title}</h2>
+        <h2>{modalTitle}</h2>
 
         <div className="expand-gallery">
           <div className="expand-item">
