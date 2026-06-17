@@ -57,7 +57,7 @@ export default function ProductsMainSection({ refreshKey }) {
     id: "nina-fresa-01",
     title: "Niña Fresa",
     subtitle: "Ilustración cuentos infantiles",
-    image: "1774818637969-imgPrincipal.png",
+    image: "PROYECTO1_FINAL.png",
     description: "Proyecto inspirado en dos palabras en técnica acuarela",
     detailPath: "/obra/niña-fresa",
   };
