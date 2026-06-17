@@ -969,7 +969,6 @@ p {
     width: 100%;
     max-width: 600px;
     border-radius: 40px;
-    box-shadow: 0 30px 90px rgba(39, 54, 77, 0.18);
     object-fit: cover;
 }
 
@@ -1329,7 +1328,6 @@ p {
 
     .hero-image {
         max-width: 90%;
-        border-width: 5px;
     }
 
     .hero-nav {
