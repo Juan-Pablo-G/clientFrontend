@@ -16,15 +16,12 @@ export function buildUrl(path) {
   if (/^https?:\/\//i.test(path)) return path;
 
   const isImage = path.startsWith("/images");
-  const base = API_BASE_URL.replace(/\/+$|^\s+|\s+$/g, "");
+  const base = API_BASE_URL.replace(/\/+$/|^\s+|\s+$/g, "");
 
   if (isImage) {
-    // En desarrollo sin VITE_API_URL, usamos la ruta relativa para que Vite
-    // sirva las imágenes locales desde client/public/images.
-    if (!import.meta.env.VITE_API_URL) {
-      return path;
-    }
-    return `${base}${path}`;
+    // Para imágenes locales y estáticas, usamos siempre la ruta relativa.
+    // Vite en desarrollo y el servidor en producción resuelven /images/... correctamente.
+    return path;
   }
 
   if (!API_BASE_URL) return path;
