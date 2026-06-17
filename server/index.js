@@ -46,7 +46,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 async function start() {
-  const email = process.env.ADMIN_EMAIL || "solanagranobles39@gmail.com";
+  const email = process.env.ADMIN_EMAIL || "Sol.ilustra.estudio@gmail.com";
   const password = process.env.ADMIN_PASSWORD || "solecito";
   await ensureAdmin(email, password);
   app.listen(PORT, () => {

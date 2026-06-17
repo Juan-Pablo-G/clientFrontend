@@ -151,7 +151,7 @@ export default function Home() {
             <h3>CONTACTAME</h3>
             <ul>
               <li>
-                <a href="https://www.instagram.com/solecito_.30/" target="_blank" rel="noreferrer" className="btn btn-instagram">
+                <a href="https://www.instagram.com/solecito_ilustra30/" target="_blank" rel="noreferrer" className="btn btn-instagram">
                   Instagram
                 </a>
               </li>
