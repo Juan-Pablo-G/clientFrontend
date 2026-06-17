@@ -23,7 +23,7 @@ export default function ContactSection() {
               Instagram
             </a>
             <a 
-              href="mailto:contacto@murisart.com"
+              href="mailto:Sol.ilustra.estudio@gmail.com"
               className="contact-button email-button"
             >
               <span className="button-icon">✉️</span>

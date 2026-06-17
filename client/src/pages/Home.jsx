@@ -156,7 +156,7 @@ export default function Home() {
                 </a>
               </li>
               <li>
-                <a href="mailto:solanagranobles39@gmail.com" className="btn btn-email">
+                <a href="mailto:Sol.ilustra.estudio@gmail.com" className="btn btn-email">
                   Correo Electronico
                 </a>
               </li>
