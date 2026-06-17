@@ -146,7 +146,9 @@ export default function ProductsSection({ refreshKey }) {
         isOpen={!!expandedModal}
         onClose={() => setExpandedModal(null)}
         product={expandedModal}
+        modalImage="/images/PROYECTO1_FINAL.png"
       />
+
     </main>
   );
 }
