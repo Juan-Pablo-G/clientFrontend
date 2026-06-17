@@ -4,7 +4,6 @@ export default function HeroSection({ onNavClick, onAdminClick }) {
   return (
     <header className="hero-section">
       <div className="hero-content">
-        <h1 className="hero-title">ANASOL ART</h1>
 
         <div className="hero-image-container">
           <img
