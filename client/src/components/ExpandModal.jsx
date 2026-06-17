@@ -6,7 +6,7 @@ export default function ExpandModal({ isOpen, onClose, product, modalImage: moda
 
   const description = product.description || product.subtitle;
   const modalTitle = "PROYECTO 1";
-  const modalImage = modalImageProp ? buildUrl(modalImageProp) : buildUrl("/images/PROYECTO1_FINAL.png");
+  const modalImage = modalImageProp ? buildUrl(modalImageProp) : buildUrl("/images/PROYECTO 1.png");
 
   return (
     <div className="expand-modal-overlay" onClick={onClose}>
