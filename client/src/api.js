@@ -16,7 +16,7 @@ export function buildUrl(path) {
   if (/^https?:\/\//i.test(path)) return path;
 
   const isImage = path.startsWith("/images");
-  const base = API_BASE_URL.replace(/\/+$/|^\s+|\s+$/g, "");
+  const base = API_BASE_URL.trim().replace(/\/+$/, "");
 
   if (isImage) {
     // Para imágenes locales y estáticas, usamos siempre la ruta relativa.
