@@ -1,4 +1,5 @@
 import React from 'react';
+import { buildUrl } from '../api';
 
 export default function AboutSection() {
   return (
@@ -25,7 +26,7 @@ export default function AboutSection() {
 
         <div className="about-image-container">
           <img
-            src="/images/PORTADA.png"
+            src={buildUrl("/images/PORTADA.png")}
             alt="Muestra de trabajo"
             className="about-image"
           />
