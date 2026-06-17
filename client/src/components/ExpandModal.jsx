@@ -1,12 +1,12 @@
 import { buildUrl } from "../api";
 import "./ExpandModal.css";
 
-export default function ExpandModal({ isOpen, onClose, product }) {
+export default function ExpandModal({ isOpen, onClose, product, modalImage: modalImageProp }) {
   if (!isOpen || !product) return null;
 
   const description = product.description || product.subtitle;
   const modalTitle = "PROYECTO 1";
-  const modalImage = buildUrl("/images/PROYECTO1_FINAL.png");
+  const modalImage = modalImageProp ? buildUrl(modalImageProp) : buildUrl("/images/PROYECTO1_FINAL.png");
 
   return (
     <div className="expand-modal-overlay" onClick={onClose}>
