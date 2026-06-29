@@ -26,7 +26,7 @@ export default function AboutSection() {
 
         <div className="about-image-container">
           <img
-            src={buildUrl("/images/imgPrincipal.png")}
+            src={buildUrl("/images/fotoSol.png")}
             alt="Muestra de trabajo"
             className="about-image"
           />
