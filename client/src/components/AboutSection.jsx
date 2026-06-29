@@ -7,19 +7,17 @@ export default function AboutSection() {
       <div className="about-container">
         <div className="about-content">
           <span className="section-label">Sobre mí</span>
-          <h2 className="section-title">Hola, soy artista visual.</h2>
+          <h2 className="section-title">¡Holaaa! Me presento, soy Anasol Granobles</h2>
           
           <p className="about-paragraph">
-            Combino ilustración, color y armonía para crear piezas que transmiten alegría y cercanía.
-          </p>
-
-          <p className="about-paragraph">
-            Mi trabajo está pensado para quienes buscan una estética fresca, con detalles originales y un mensaje claro.
+            Soy ilustradora y diseñadora colombiana con un enfoque en el estilo infantil. Me apasiona dar vida a
+            productos a través de mis ilustraciones, creando piezas llenas de color, ternura y creatividad.
           </p>
 
           <div className="about-highlight">
             <p className="highlight-text">
-              Especializada en crear composiciones visuales que capturan emociones y conectan con tu audiencia.
+              Si crees que mi estilo puede aportar valor a tu marca, producto o proyecto editorial, ¡contáctame y
+              creemos juntos algo especial!
             </p>
           </div>
         </div>
