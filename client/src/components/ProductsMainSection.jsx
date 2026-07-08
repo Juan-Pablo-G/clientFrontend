@@ -116,6 +116,7 @@ export default function ProductsMainSection({ refreshKey }) {
         : productFromApi2.description || fallbackProduct2.description,
       detailPath: productFromApi2.detailPath || fallbackProduct2.detailPath,
     },
+  ];
   // const mainProducts = products.slice(0, 3);
 
   return (
