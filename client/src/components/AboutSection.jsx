@@ -10,14 +10,16 @@ export default function AboutSection() {
           <h2 className="section-title">¡Holaaa! Me presento, soy Anasol Granobles</h2>
           
           <p className="about-paragraph">
-            Soy ilustradora y diseñadora colombiana con un enfoque en el estilo infantil. Me apasiona dar vida a
-            productos a través de mis ilustraciones, creando piezas llenas de color, ternura y creatividad.
+            Soy ilustradora y diseñadora colombiana con un enfoque en el estilo infantil. Me apasiona dar vida a productos a través de mis ilustraciones, creando piezas llenas de color, ternura y creatividad.
+          </p>
+
+          <p className="about-paragraph">
+            Si crees que mi estilo puede aportar valor a tu marca, producto o proyecto editorial, ¡contáctame y creemos juntos algo especial!
           </p>
 
           <div className="about-highlight">
             <p className="highlight-text">
-              Si crees que mi estilo puede aportar valor a tu marca, producto o proyecto editorial, ¡contáctame y
-              creemos juntos algo especial!
+              Especializada en crear composiciones visuales que capturan emociones y conectan con tu audiencia.
             </p>
           </div>
         </div>

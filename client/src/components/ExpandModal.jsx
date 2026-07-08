@@ -5,7 +5,7 @@ export default function ExpandModal({ isOpen, onClose, product, modalImage: moda
   if (!isOpen || !product) return null;
 
   const description = product.description || product.subtitle;
-  const modalTitle = "PROYECTO 1";
+  const modalTitle = product.title ? product.title.toUpperCase() : "PROYECTO 1";
   const modalImage = modalImageProp ? buildUrl(modalImageProp) : buildUrl("/images/PROYECTO 1.png");
 
   return (
